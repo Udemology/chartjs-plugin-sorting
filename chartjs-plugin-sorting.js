@@ -7,35 +7,38 @@ const ChartjsPluginSorting = {
     if (container === null) {
       // Create the container element and append the canvas to it
       container = document.createElement('div');
+      console.log(plugin.container)
       container.classList.add('chartjs-plugin-sorting-container');
       container.style.position = 'relative';
       container.style.display = 'flex';
-      container.style.paddingTop = `${plugin.container.padding.top}px` || '20px';
+      container.style.paddingTop = plugin.container?.padding?.top ?? '10px';
       chart.canvas.parentNode.insertBefore(container, chart.canvas);
       container.appendChild(chart.canvas);
 
       const buttonAsc = document.createElement('button');
-      buttonAsc.classList = plugin.asc.button.class || '';
-      buttonAsc.innerText = plugin.asc.button.label || 'Asc';
+      buttonAsc.classList = plugin.asc?.button?.class ?? '';
+      buttonAsc.innerText = plugin.asc?.button?.label ?? 'Asc';
       buttonAsc.style.position = 'absolute';
-      buttonAsc.style.top = `${plugin.asc.button.topPosition}px` || '10px';
-      buttonAsc.style.right = `${plugin.asc.button.rightPosition}px` || '40px';
+      buttonAsc.style.top = (typeof plugin.asc?.button?.topPosition !== 'undefined') ? `${plugin.asc.button.topPosition}px` : '10px';
+      buttonAsc.style.right = (typeof plugin.asc?.button?.rightPosition !== 'undefined') ? `${plugin.asc.button.rightPosition}px` : '85px';
+
       container.appendChild(buttonAsc);
 
       const buttonDesc = document.createElement('button');
-      buttonDesc.classList = plugin.desc.button.class || '';
-      buttonDesc.innerText = plugin.desc.button.label || 'Desc';
+      buttonDesc.classList = plugin.desc?.button?.class ?? '';
+      buttonDesc.innerText = plugin.desc?.button?.label ?? 'Desc';
       buttonDesc.style.position = 'absolute';
-      buttonDesc.style.top = `${plugin.desc.button.topPosition}px` || '10px';
-      buttonDesc.style.right = `${plugin.desc.button.rightPosition}px` || '40px';
+      buttonDesc.style.top = (typeof plugin.desc?.button?.topPosition !== 'undefined') ? `${plugin.desc.button.topPosition}px` : '10px';
+      buttonDesc.style.right = (typeof plugin.desc?.button?.rightPosition !== 'undefined') ? `${plugin.desc.button.rightPosition}px` : '45px';
       container.appendChild(buttonDesc);
 
       const buttonReset = document.createElement('button');
-      buttonReset.classList = plugin.reset.button.class || '';
-      buttonReset.innerText = plugin.reset.button.label || 'Reset';
+      buttonReset.classList = plugin.reset?.button?.class ?? '';
+      buttonReset.innerText = plugin.reset?.button?.label ?? 'Reset';
       buttonReset.style.position = 'absolute';
-      buttonReset.style.top = `${plugin.reset.button.topPosition}px` || '10px';
-      buttonReset.style.right = `${plugin.reset.button.rightPosition}px` || '80px';
+      buttonReset.style.top = (typeof plugin.reset?.button?.topPosition !== 'undefined') ? `${plugin.reset.button.topPosition}px` : '10px';
+      buttonReset.style.right = (typeof plugin.reset?.button?.rightPosition !== 'undefined') ? `${plugin.reset.button.rightPosition}px` : '0px';
+
       container.appendChild(buttonReset);
 
       // Add a click event listener to the button

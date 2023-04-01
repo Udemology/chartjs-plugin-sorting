@@ -27,22 +27,22 @@ To use this plugin you will need to register the plugin.
 Chart.register(ChartjsPluginSorting);
 ```
 
-## Buttons
+# Buttons
 
 All buttons used are build in HTML and have a fixed functionality. In total there are 3 buttons. 
 - [ASC or Low to High Button](#low-to-high-button)
 - [DESC or High to Low Button](#high-to-low-button)
 - [Reset Button](#reset-button)
 
-# Low to High Button
+## Low to High Button
 
 The ASC or Low to High button is basic button that is build in HTML. By pressing this button you will sort the datapoints based on ascending values. Because it is a HTML button you can quickly add design in css with a class name. 
 
-# High to Low Button
+## High to Low Button
 
 The DESC or High to Low button is basic button that is build in HTML. By pressing this button you will sort the datapoints based on descending values. Because it is a HTML button you can quickly add design in css with a class name. 
 
-# Reset Button
+## Reset Button
 
 The Reset Button is basic button that is build in HTML. By pressing this button you will revert the datapoints back to it's original starting point as the initial load. Because it is a HTML button you can quickly add design in css with a class name. 
   

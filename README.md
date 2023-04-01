@@ -1,7 +1,8 @@
 # chartjs-plugin-sorting
 Chartjs 4 sorting plugin to add buttons to sort datapoints from high to low, low to high and reset. 
+By default Chart.js does not offer this options. This plugin is designed to help people quickly sort their bar chart datasets.
 
-This plugin is designed to help people quickly sort there bar chart dataset. 
+Currently, this will work only a single dataset.
 
 Please visit the documentation on: https://www.chartjs.net/chartjs-plugin-sorting<br>
 Please visit the documentation on: https://www.chartjs3.com/chartjs-plugin-sorting<br>

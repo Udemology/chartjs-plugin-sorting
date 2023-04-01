@@ -4,9 +4,8 @@ By default Chart.js does not offer this options. This plugin is designed to help
 
 Currently, this will work only a single dataset.
 
-Please visit the documentation on: https://www.chartjs.net/chartjs-plugin-sorting<br>
 Please visit the documentation on: https://www.chartjs3.com/chartjs-plugin-sorting<br>
-Please visit the documentation on: https://www.chartjs4.com/chartjs-plugin-sorting<br>
+
 
 
 ## Getting Started

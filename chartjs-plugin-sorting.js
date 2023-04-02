@@ -7,7 +7,6 @@ const ChartjsPluginSorting = {
     if (container === null) {
       // Create the container element and append the canvas to it
       container = document.createElement('div');
-      console.log(plugin.container)
       container.classList.add('chartjs-plugin-sorting-container');
       container.style.position = 'relative';
       container.style.display = 'flex';

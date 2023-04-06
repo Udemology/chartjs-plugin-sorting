@@ -17,6 +17,7 @@ const ChartjsPluginSorting = {
       const buttonAsc = document.createElement('button');
       buttonAsc.classList = plugin.asc?.button?.class ?? '';
       buttonAsc.innerText = plugin.asc?.button?.label ?? 'Asc';
+      buttonAsc.style.display = plugin.asc?.button?.display ?? true;
       buttonAsc.style.position = 'absolute';
       buttonAsc.style.top = (typeof plugin.asc?.button?.topPosition !== 'undefined') ? `${plugin.asc.button.topPosition}px` : '10px';
       buttonAsc.style.right = (typeof plugin.asc?.button?.rightPosition !== 'undefined') ? `${plugin.asc.button.rightPosition}px` : '85px';
@@ -26,6 +27,7 @@ const ChartjsPluginSorting = {
       const buttonDesc = document.createElement('button');
       buttonDesc.classList = plugin.desc?.button?.class ?? '';
       buttonDesc.innerText = plugin.desc?.button?.label ?? 'Desc';
+      buttonDesc.style.display = plugin.desc?.button?.display ?? true;
       buttonDesc.style.position = 'absolute';
       buttonDesc.style.top = (typeof plugin.desc?.button?.topPosition !== 'undefined') ? `${plugin.desc.button.topPosition}px` : '10px';
       buttonDesc.style.right = (typeof plugin.desc?.button?.rightPosition !== 'undefined') ? `${plugin.desc.button.rightPosition}px` : '45px';
@@ -34,6 +36,7 @@ const ChartjsPluginSorting = {
       const buttonReset = document.createElement('button');
       buttonReset.classList = plugin.reset?.button?.class ?? '';
       buttonReset.innerText = plugin.reset?.button?.label ?? 'Reset';
+      buttonReset.style.display = plugin.reset?.button?.display ?? true;
       buttonReset.style.position = 'absolute';
       buttonReset.style.top = (typeof plugin.reset?.button?.topPosition !== 'undefined') ? `${plugin.reset.button.topPosition}px` : '10px';
       buttonReset.style.right = (typeof plugin.reset?.button?.rightPosition !== 'undefined') ? `${plugin.reset.button.rightPosition}px` : '0px';

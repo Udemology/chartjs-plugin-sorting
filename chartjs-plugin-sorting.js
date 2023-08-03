@@ -21,7 +21,6 @@ const ChartjsPluginSorting = {
       buttonAsc.style.position = 'absolute';
       buttonAsc.style.top = (typeof plugin.asc?.button?.topPosition !== 'undefined') ? `${plugin.asc.button.topPosition}px` : '10px';
       buttonAsc.style.right = (typeof plugin.asc?.button?.rightPosition !== 'undefined') ? `${plugin.asc.button.rightPosition}px` : '85px';
-
       container.appendChild(buttonAsc);
 
       const buttonDesc = document.createElement('button');
@@ -40,8 +39,16 @@ const ChartjsPluginSorting = {
       buttonReset.style.position = 'absolute';
       buttonReset.style.top = (typeof plugin.reset?.button?.topPosition !== 'undefined') ? `${plugin.reset.button.topPosition}px` : '10px';
       buttonReset.style.right = (typeof plugin.reset?.button?.rightPosition !== 'undefined') ? `${plugin.reset.button.rightPosition}px` : '0px';
-
       container.appendChild(buttonReset);
+
+      const buttonAlphabetical = document.createElement('button');
+      buttonAlphabetical.classList = plugin.alphabetical?.button?.class ?? '';
+      buttonAlphabetical.innerText = plugin.alphabetical?.button?.label ?? 'Alphabetical';
+      buttonAlphabetical.style.display = plugin.alphabetical?.button?.display ?? true;
+      buttonAlphabetical.style.position = 'absolute';
+      buttonAlphabetical.style.top = (typeof plugin.alphabetical?.button?.topPosition !== 'undefined') ? `${plugin.alphabetical.button.topPosition}px` : '10px';
+      buttonAlphabetical.style.right = (typeof plugin.alphabetical?.button?.rightPosition !== 'undefined') ? `${plugin.alphabetical.button.rightPosition}px` : '115px';
+      container.appendChild(buttonAlphabetical);
 
       // Add a click event listener to the button
       buttonAsc.addEventListener('click', () => {
@@ -56,6 +63,11 @@ const ChartjsPluginSorting = {
       // Add a click event listener to the reset button
       buttonReset.addEventListener('click', () => {
         resetChartData(chart);
+      });
+
+      // Add a click event listener to the button
+      buttonAlphabetical.addEventListener('click', () => {
+        sortChartAlphabetical(chart, (a, b) => a.data - b.data);
       });
 
       // Save a copy of the original data for resetting later
@@ -113,5 +125,39 @@ const ChartjsPluginSorting = {
       chart.update();
       chart.resize();
     };
+
+		const sortChartAlphabetical = (chart) => {
+		  // Get the data, labels, and colors from the chart
+		  const chartData = chart.data.datasets[0].data;
+		  const chartLabels = chart.data.labels;
+		  const chartBorders = chart.data.datasets[0].borderColor;
+		  const chartColors = chart.data.datasets[0].backgroundColor;
+
+		  // Combine the data, labels, and colors into an array of objects
+		  const chartDataArray = chartData.map((dataPoint, index) => ({
+		    data: dataPoint,
+		    label: chartLabels[index],
+		    border: chartBorders[index],
+		    color: chartColors[index]
+		  }));
+
+		  // Sort the array of objects by label in alphabetical order
+		  chartDataArray.sort((a, b) => a.label.localeCompare(b.label));
+
+		  // Separate the sorted data, labels, and colors back into their respective arrays
+		  const sortedChartData = chartDataArray.map(dataObj => dataObj.data);
+		  const sortedChartLabels = chartDataArray.map(dataObj => dataObj.label);
+		  const sortedChartBorders = chartDataArray.map(dataObj => dataObj.border);
+		  const sortedChartColors = chartDataArray.map(dataObj => dataObj.color);
+
+		  // Update the chart with the sorted data, labels, and colors
+		  chart.data.datasets[0].data = sortedChartData;
+		  chart.data.labels = sortedChartLabels;
+		  chart.data.datasets[0].backgroundColor = sortedChartColors;
+		  chart.data.datasets[0].borderColor = sortedChartBorders;
+		  chart.update();
+		  chart.resize();
+		};
+
   })
 };

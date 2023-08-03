@@ -33,6 +33,7 @@ All buttons used are build in HTML and have a fixed functionality. In total ther
 - [ASC or Low to High Button](#low-to-high-button)
 - [DESC or High to Low Button](#high-to-low-button)
 - [Reset Button](#reset-button)
+- [Alphabetical Order Button](#alphabetical-order-button)
 
 ## Low to High Button
 
@@ -46,3 +47,8 @@ The DESC or High to Low button is basic button that is build in HTML. By pressin
 
 The Reset Button is basic button that is build in HTML. By pressing this button you will revert the datapoints back to it's original starting point as the initial load. Because it is a HTML button you can quickly add design in css with a class name. 
   
+## Alphabetical Order Button
+
+The Alphabetical Order Button is basic button that is build in HTML. By pressing this button you will order the datapoints based on the labels and will be set on alphabetical order. Because it is a HTML button you can quickly add design in css with a class name. 
+  
+
